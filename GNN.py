@@ -23,6 +23,11 @@ y_train, y_test = (0,0,0,0,0,0)
 with np.load("data/small150.npz", allow_pickle=True) as alldata:
     A, X, y = alldata["arr_0"]
 
+    print("Loaded dataset shapes:")
+    print(A.shape)
+    print(X.shape)
+    print(y.shape)
+
     A = np.swapaxes(A,0,1)
     X = np.swapaxes(X,0,1)
     y_c = np.zeros(shape=(y.shape[0],5))
@@ -43,7 +48,7 @@ with np.load("data/small150.npz", allow_pickle=True) as alldata:
     idx = np.argwhere(np.all(X[..., :] == 0, axis=(0,1,2)))
     X = np.delete(X, idx, axis=3)
 
-    print("Loaded dataset shapes:")
+    print("Shapes after preprocessing them:")
     print(A.shape)
     print(X.shape)
     print(y.shape)
