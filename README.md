@@ -21,7 +21,7 @@ This implementation (and Spektral) requires Tensorflow 2.
 
 ## The dataset
 
-In data/ there is a serialized NumPy array named small150.npz. This file includes three NumPy arrays, one for pair of adjacent matrixes representing Control Flow Graphs (CFGs) for the same application compiled twice with different optimization plains, the second contains features extract from the code binary of each node counting the number of instructions of it and, the last contains the relative difference of performance from the two pairs of CFGs. They have the following shapes:
+In data/ there is a serialized NumPy array named small150.npz. This file includes three NumPy arrays. One for pairs of adjacent matrixes representing Control Flow Graphs (CFGs) for same applications compiled twice with different optimization plains. Another contains features for each node in the CFGs, extract from the number of x86_64 instructions for each CFG node in the code binary. The last contains the relative difference of performance from the two pairs of CFGs. The goal is to learn the relative performance using the CFG structure and the binary instructions counters. They have the following shapes:
 
 * Pairs of CFGs: (2, 25500, 150, 150)
 * CFGs features: (2, 25500, 150, 94)
